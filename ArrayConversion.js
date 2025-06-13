@@ -31,3 +31,15 @@ function arrayConversion(arr) {
     }
     return count % 2 === 0 ? arr[0] + arr[1] : arr[0] * arr[1]
 }
+
+function arrayConversion(arr) {
+    let count = 1
+
+    while (arr.length > 1) {
+        for (let i = 0; i < arr.length; i++) {
+            count % 2 !== 0 ? arr.splice(i, 2, arr[i] + arr[i + 1]) : arr.splice(i, 2, arr[i] * arr[i + 1])
+        }
+        count++
+    }
+    return arr[0]
+}
