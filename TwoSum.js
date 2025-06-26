@@ -21,3 +21,18 @@ function twoSum(numbers, target) {
     })
     return result
 }
+
+const twoSum = function (nums, target) {
+    let index = nums.length - 1
+    const sortedNums = [...nums]
+    sortedNums.sort((a, b) => a - b)
+
+    for (let i = 0; i < sortedNums.length; i++) {
+        if (sortedNums[i] + sortedNums[index] === target) {
+            return [nums.indexOf(sortedNums[i]), nums.lastIndexOf(sortedNums[index])]
+        } else if (sortedNums[i] + sortedNums[index] > target) {
+            index--
+            i--
+        }
+    }
+}
