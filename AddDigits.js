@@ -30,25 +30,40 @@
 
 // Follow up: Could you do it without any loop/recursion in O(1) runtime?
 
+// var addDigits = function (num) {
+//     if (num < 10) return num
+
+//     let arr = String(num).split('')
+//     let numArr = []
+//     let sum = 10
+
+//     while (sum > 9) {
+//         arr.map((str) => {
+//             numArr.push(Number(str))
+//         })
+
+//         sum = numArr.reduce((total, num) => {
+//             return total += num
+//         }, 0)
+
+//         arr = String(sum).split('')
+//         numArr = []
+//     }
+
+//     return sum
+// };
+
 var addDigits = function (num) {
-    if (num < 10) return num
+    let result = num
 
-    let arr = String(num).split('')
-    let numArr = []
-    let sum = 10
+    while (result > 9) {
+        const arr = String(result).split('')
 
-    while (sum > 9) {
-        arr.map((str) => {
-            numArr.push(Number(str))
-        })
-
-        sum = numArr.reduce((total, num) => {
-            return total += num
+        result = arr.reduce((sum, num) => {
+            return sum += Number(num)
         }, 0)
 
-        arr = String(sum).split('')
-        numArr = []
     }
 
-    return sum
+    return result
 };
